@@ -1,0 +1,20 @@
+
+<% content_for :page_title do %>
+  <%= Spree.t(:editing_featured_product) %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <li>
+    <%= button_link_to Spree.t(:back_to_feature_products_list), spree.admin_latest_products_path, :icon => 'arrow-left' %>
+  </li>
+<% end %>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @latest_product } %>
+
+<%= form_for [:admin, @latest_product] do |f| %>
+  <fieldset>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+
+    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>

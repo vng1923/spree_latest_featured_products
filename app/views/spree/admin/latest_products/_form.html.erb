@@ -1,0 +1,18 @@
+<div data-hook="admin_option_type_form_fields" class="align-center row">
+  <div class="alpha eight columns">
+    <%= f.field_container :product do %>
+      <%= f.label :product, Spree.t(:product) %> <span class="required">*</span><br />
+      <%= f.select :product_id, Spree::Product.all.collect {|s| [s.name, s.id ] }, {:include_blank => true}, :class => 'select2' %>
+
+      <%= f.error_message_on :product_id %>
+    <% end %>
+  </div>
+
+  <div class="omega eight columns">
+    <%= f.field_container :store do %>
+      <%= f.label :store, Spree.t(:store) %><br />
+      <%= f.select :store_id, Spree::Store.all.collect {|s| [s.name, s.id ] }, {:include_blank => true}, :class => 'select2' %>
+      <%= f.error_message_on :store_id %>
+    <% end %>
+  </div>
+</div>
